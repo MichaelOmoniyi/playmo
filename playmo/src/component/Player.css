@@ -41,7 +41,10 @@ body {
 }
 
 .musicInfo h3 {
-    text-wrap: wrap;
+    width: 100%;
+    overflow: hidden;
+    /* text-wrap: wrap; */
+    text-overflow: ellipsis;
     word-break: break-all;
 }
 

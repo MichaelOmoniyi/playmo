@@ -6,11 +6,13 @@ import { IconContext } from "react-icons"; // for customizing the icons
 import "./Player.css";
 
 export default function Player() {
-  const [fileContent, setFileContent] = useState(null);
+  const [audioSource, setAudioSource] = useState(null);
   const [file, setFile] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
-  const [play, { pause, duration, sound }] = useSound(fileContent);
+  const [play, { pause, duration, sound }] = useSound(audioSource, {
+    format: ["mp3", "wav", "ogg"],
+  });
 
   const [currTime, setCurrTime] = useState({
     min: "",
@@ -31,8 +33,9 @@ export default function Player() {
     if (file) {
       const reader = new FileReader();
       reader.onload = (e) => {
-        setFileContent(e.target.result);
+        setAudioSource(e.target.result);
         console.log("File content: ", e.target.result);
+        console.log(e.target)
       };
       reader.readAsDataURL(file);
     }
@@ -52,7 +55,7 @@ export default function Player() {
   useEffect(() => {
     const interval = setInterval(() => {
       if (sound) {
-        setSeconds(sound.seek([])); // setting the seconds state with the current state
+        setSeconds(sound.seek()); // setting the seconds state with the current state
         const min = Math.floor(sound.seek([]) / 60);
         const sec = Math.floor(sound.seek([]) % 60);
         setCurrTime({
