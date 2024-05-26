@@ -33,6 +33,18 @@ body {
     display: none;
 }
 
+.musicInfo {
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-inline: 10px;
+}
+
+.musicInfo h3 {
+    text-wrap: wrap;
+    word-break: break-all;
+}
+
 .musicCover {
   border-radius: 10%;
 }

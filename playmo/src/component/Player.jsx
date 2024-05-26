@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import useSound from "use-sound"; // for handling the sound
-// import qala from "../assets/qala.mp3"; // importing the music
 import { AiFillPlayCircle, AiFillPauseCircle } from "react-icons/ai"; // icons for play and pause
 import { BiSkipNext, BiSkipPrevious } from "react-icons/bi"; // icons for next and previous track
-import { IconContext } from "react-icons"; // for customazing the icons
+import { IconContext } from "react-icons"; // for customizing the icons
 import "./Player.css";
 
 export default function Player() {
   const [fileContent, setFileContent] = useState(null);
+  const [file, setFile] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
   const [play, { pause, duration, sound }] = useSound(fileContent);
@@ -26,14 +26,15 @@ export default function Player() {
 
   const FileSelector = (event) => {
     const file = event.target.files[0];
-    console.log(log)
+    console.log("File: ", file);
+    setFile(file);
     if (file) {
       const reader = new FileReader();
       reader.onload = (e) => {
         setFileContent(e.target.result);
-        console.log(e.target.result)
+        console.log("File content: ", e.target.result);
       };
-      reader.readAsText(file);
+      reader.readAsDataURL(file);
     }
   };
 
@@ -46,7 +47,7 @@ export default function Player() {
       sec: secRemain,
     };
     setTime(time);
-  });
+  }, [duration]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -84,6 +85,7 @@ export default function Player() {
         id="selectFolder"
         name="selectFolder"
         onChange={FileSelector}
+        accept="audio/*"
       />
       <h2>Playing Now</h2>
       <img
@@ -91,28 +93,32 @@ export default function Player() {
         src="https://picsum.photos/200/200"
         alt=""
       ></img>
-      <div>
-        <h3 className="title">Rubaiyyan</h3>
-        <p className="subTitle">Qala</p>
+      <div className="musicInfo">
+        <h3 className="title">
+          {file ? `${file["name"]}` : "No Audio selected"}
+        </h3>
+        <p className="subTitle">
+          {file ? `${file["lastModifiedDate"]}` : "N/A"}
+        </p>
       </div>
       <div>
         <div className="time">
           <p>
-            {currTime.min}:{currTime.sec}
+            {currTime.min}:{currTime.sec.toString().padStart(2, "0")}
           </p>
           <p>
-            {time.min}:{time.sec}
+            {time.min}:{time.sec.toString().padStart(2, "0")}
           </p>
         </div>
         <input
           type="range"
           min="0"
-          max={duration / 1000}
+          max={duration ? duration / 1000 : 0}
           default="0"
           value={seconds}
           className="timeline"
           onChange={(e) => {
-            sound.seek([e.target.value]);
+            if (sound) sound.seek(e.target.value);
           }}
         />
       </div>
