@@ -13,8 +13,24 @@ body {
   max-width: 600px;
   margin: 1em auto;
   padding-bottom: 2em;
+  padding-top: 30px;
   border: 0.1px solid black;
   border-radius: 10px;
+  position: relative;
+}
+
+.selectFolder {
+    width: 100%;
+    text-align: center;
+    position: relative;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.selectFolderInput {
+    display: none;
 }
 
 .musicCover {

@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
 import useSound from "use-sound"; // for handling the sound
-import qala from "../assets/qala.mp3"; // importing the music
+// import qala from "../assets/qala.mp3"; // importing the music
 import { AiFillPlayCircle, AiFillPauseCircle } from "react-icons/ai"; // icons for play and pause
 import { BiSkipNext, BiSkipPrevious } from "react-icons/bi"; // icons for next and previous track
 import { IconContext } from "react-icons"; // for customazing the icons
 import "./Player.css";
 
 export default function Player() {
+  const [fileContent, setFileContent] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
-  const [play, { pause, duration, sound }] = useSound(qala);
+  const [play, { pause, duration, sound }] = useSound(fileContent);
 
   const [currTime, setCurrTime] = useState({
     min: "",
@@ -22,6 +23,19 @@ export default function Player() {
   });
 
   const [seconds, setSeconds] = useState(); // current position of the audio in seconds
+
+  const FileSelector = (event) => {
+    const file = event.target.files[0];
+    console.log(log)
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        setFileContent(e.target.result);
+        console.log(e.target.result)
+      };
+      reader.readAsText(file);
+    }
+  };
 
   useEffect(() => {
     const sec = duration / 1000;
@@ -61,6 +75,16 @@ export default function Player() {
 
   return (
     <div className="component">
+      <label htmlFor="selectFolder" className="selectFolder">
+        Select folder...
+      </label>
+      <input
+        type="file"
+        className="selectFolderInput"
+        id="selectFolder"
+        name="selectFolder"
+        onChange={FileSelector}
+      />
       <h2>Playing Now</h2>
       <img
         className="musicCover"
