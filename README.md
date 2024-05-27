@@ -1,4 +1,14 @@
-# Getting Started with Create React App
+# PLAYMO - An Online Music Streaming Application
+
+## Contributors
+
+MAJARO TOHEEB - (https://github.com/Torh-21)
+
+ODINAKA EMMANUEL - (https://github.com/astronolt)
+
+OMONIYI MICHAEL - (https://github.com/MichaelOmoniyi)
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
