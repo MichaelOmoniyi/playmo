@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import useSound from "use-sound";
-import qala from "../assets/qala.mp3";
-// import musicImage from "../assets/music-player.jpg";
+import winMusic from "../assets/all-i-do-is-win.mp3";
+import musicImage from "../assets/music-player.jpg";
 import { AiFillPlayCircle, AiFillPauseCircle } from "react-icons/ai";
 import { BiSkipNext, BiSkipPrevious } from "react-icons/bi";
 import { IconContext } from "react-icons";
@@ -19,7 +19,7 @@ export default function Player() {
 
   const [seconds, setSeconds] = useState();
 
-  const [play, { pause, duration, sound }] = useSound(qala);
+  const [play, { pause, duration, sound }] = useSound(winMusic);
 
   useEffect(() => {
     if (duration) {
@@ -61,10 +61,10 @@ export default function Player() {
   return (
     <div className="component">
       <h2>Playing Now</h2>
-      {/* <img className="musicCover" src={musicImage} /> */}
+      <img className="musicCover" src={musicImage} />
       <div>
-        <h3 className="title">Rubaiyyan</h3>
-        <p className="subTitle">Qala</p>
+        <h3 className="title">All I Do Is Win</h3>
+        <p className="subTitle">Rick Ross ft. DJ Khaled, Ludacris, Snoop Dogg & T Pain</p>
       </div>
       <div>
         <div className="time">
