@@ -6,14 +6,11 @@
 
 .component {
     width: 100% !important;
-    padding: 20px !important;
+    padding: 30px;
     background-color: rgba(0, 0, 0, 0.7) !important;
 }
 
-header img {
-    width: 100px;
-    max-height: 70px;
-}
+
 
 .tabs {
     width: 100%;

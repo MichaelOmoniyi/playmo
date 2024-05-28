@@ -64,9 +64,6 @@ export default function Player() {
 
   return (
     <div className="component">
-      <header>
-        <img src="/src/assets/PlayMO.png" alt="PlayMo Logo" />
-      </header>
       <div className="tabs">
         <button
           className={`tab ${activeTab === "local" ? "active" : ""}`}
@@ -74,6 +71,7 @@ export default function Player() {
         >
           Local Player
         </button>
+        <h2>Playing Now</h2>
         <button
           className={`tab ${activeTab === "spotify" ? "active" : ""}`}
           onClick={() => setActiveTab("spotify")}
@@ -83,7 +81,6 @@ export default function Player() {
       </div>
       {activeTab === "local" && (
         <div className="local-player">
-          <h2>Playing Now</h2>
           <img className="musicCover" src={musicImage} alt="Music Cover" />
           <div className="titles">
             <h3 className="title">All I Do Is Win</h3>
