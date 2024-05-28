@@ -1,66 +1,47 @@
 import { useEffect, useState } from "react";
-import useSound from "use-sound"; // for handling the sound
-import { AiFillPlayCircle, AiFillPauseCircle } from "react-icons/ai"; // icons for play and pause
-import { BiSkipNext, BiSkipPrevious } from "react-icons/bi"; // icons for next and previous track
-import { IconContext } from "react-icons"; // for customizing the icons
-import "./Player.css";
+import useSound from "use-sound";
+import qala from "../assets/qala.mp3";
+// import musicImage from "../assets/music-player.jpg";
+import { AiFillPlayCircle, AiFillPauseCircle } from "react-icons/ai";
+import { BiSkipNext, BiSkipPrevious } from "react-icons/bi";
+import { IconContext } from "react-icons";
 
 export default function Player() {
-  const [audioSource, setAudioSource] = useState(null);
-  const [file, setFile] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
-
-  const [play, { pause, duration, sound }] = useSound(audioSource, {
-    format: ["mp3", "wav", "ogg"],
-  });
-
-  const [currTime, setCurrTime] = useState({
-    min: "",
-    sec: "",
-  }); // current position of the audio in minutes and seconds
-
   const [time, setTime] = useState({
     min: "",
-    sec: "",
+    sec: ""
+  });
+  const [currTime, setCurrTime] = useState({
+    min: "",
+    sec: ""
   });
 
-  const [seconds, setSeconds] = useState(); // current position of the audio in seconds
+  const [seconds, setSeconds] = useState();
 
-  const FileSelector = (event) => {
-    const file = event.target.files[0];
-    console.log("File: ", file);
-    setFile(file);
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        setAudioSource(e.target.result);
-        console.log("File content: ", e.target.result);
-        console.log(e.target)
-      };
-      reader.readAsDataURL(file);
-    }
-  };
+  const [play, { pause, duration, sound }] = useSound(qala);
 
   useEffect(() => {
-    const sec = duration / 1000;
-    const min = Math.floor(sec / 60);
-    const secRemain = Math.floor(sec % 60);
-    const time = {
-      min: min,
-      sec: secRemain,
-    };
-    setTime(time);
-  }, [duration]);
+    if (duration) {
+      const sec = duration / 1000;
+      const min = Math.floor(sec / 60);
+      const secRemain = Math.floor(sec % 60);
+      setTime({
+        min: min,
+        sec: secRemain
+      });
+    }
+  }, [isPlaying, duration]);
 
   useEffect(() => {
     const interval = setInterval(() => {
       if (sound) {
-        setSeconds(sound.seek()); // setting the seconds state with the current state
+        setSeconds(sound.seek([]));
         const min = Math.floor(sound.seek([]) / 60);
         const sec = Math.floor(sound.seek([]) % 60);
         setCurrTime({
           min,
-          sec,
+          sec
         });
       }
     }, 1000);
@@ -69,59 +50,40 @@ export default function Player() {
 
   const playingButton = () => {
     if (isPlaying) {
-      pause(); // this will pause the audio
+      pause();
       setIsPlaying(false);
     } else {
-      play(); // this will play the audio
+      play();
       setIsPlaying(true);
     }
   };
 
   return (
     <div className="component">
-      <label htmlFor="selectFolder" className="selectFolder">
-        Select folder...
-      </label>
-      <input
-        type="file"
-        className="selectFolderInput"
-        id="selectFolder"
-        name="selectFolder"
-        onChange={FileSelector}
-        accept="audio/*"
-      />
       <h2>Playing Now</h2>
-      <img
-        className="musicCover"
-        src="https://picsum.photos/200/200"
-        alt=""
-      ></img>
-      <div className="musicInfo">
-        <h3 className="title">
-          {file ? `${file["name"]}` : "No Audio selected"}
-        </h3>
-        <p className="subTitle">
-          {file ? `${file["lastModifiedDate"]}` : "N/A"}
-        </p>
+      {/* <img className="musicCover" src={musicImage} /> */}
+      <div>
+        <h3 className="title">Rubaiyyan</h3>
+        <p className="subTitle">Qala</p>
       </div>
       <div>
         <div className="time">
           <p>
-            {currTime.min}:{currTime.sec.toString().padStart(2, "0")}
+            {currTime.min}:{currTime.sec}
           </p>
           <p>
-            {time.min}:{time.sec.toString().padStart(2, "0")}
+            {time.min}:{time.sec}
           </p>
         </div>
         <input
           type="range"
           min="0"
-          max={duration ? duration / 1000 : 0}
+          max={duration / 1000}
           default="0"
           value={seconds}
           className="timeline"
           onChange={(e) => {
-            if (sound) sound.seek(e.target.value);
+            sound.seek([e.target.value]);
           }}
         />
       </div>
