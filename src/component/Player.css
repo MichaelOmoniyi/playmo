@@ -67,5 +67,5 @@
 
 .spotify-frame{
     height: 70vh;
-    width: 600px;
+    min-width: 600px;
 }
