@@ -5,7 +5,7 @@
 }
 
 .component {
-    width: 100% !important;
+    width: auto !important;
     padding: 30px;
     background-color: rgba(0, 0, 0, 0.7) !important;
 }
@@ -63,4 +63,9 @@
     justify-content: center;
     align-items: center;
     margin-block: 5px;
+}
+
+.spotify-frame{
+    height: 70vh;
+    width: 600px;
 }

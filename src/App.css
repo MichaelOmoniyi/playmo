@@ -48,6 +48,8 @@ body {
 }
 
 .music-dash {
+  width: auto;
+  height: auto;
   margin: auto;
   margin-top: 70px;
 }
