@@ -5,15 +5,12 @@
 }
 
 .component {
-    width: 100% !important;
-    padding: 20px !important;
+    width: auto !important;
+    padding: 30px;
     background-color: rgba(0, 0, 0, 0.7) !important;
 }
 
-header img {
-    width: 100px;
-    max-height: 70px;
-}
+
 
 .tabs {
     width: 100%;
@@ -67,3 +64,34 @@ header img {
     align-items: center;
     margin-block: 5px;
 }
+
+
+.marquee-container {
+    /* width: 100%; */
+    overflow: hidden;
+    /* background: #f1f1f1;
+    padding: 10px 0; */
+  }
+  
+  .marquee {
+    display: inline-block;
+    white-space: nowrap;
+    animation: marquee 15s linear infinite;
+  }
+  
+  @keyframes marquee {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  .marquee p {
+    display: inline-block;
+    /* padding: 0 50px;
+    font-size: 24px;
+    color: #333; */
+  }
+  
