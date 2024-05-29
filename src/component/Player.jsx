@@ -88,8 +88,7 @@ export default function Player() {
               <div className="marquee-container">
                 <div className="marquee">
                   <p className="subTitle">
-                    Rick Ross ft. DJ Khaled, Ludacris, Snoop
-                    Dogg & T Pain
+                    Rick Ross ft. DJ Khaled, Ludacris, Snoop Dogg & T Pain
                   </p>
                 </div>
               </div>
