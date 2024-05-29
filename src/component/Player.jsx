@@ -63,6 +63,7 @@ export default function Player() {
 
   return (
     <div className="component">
+      
       <div className="tabs">
         <button
           className={`tab ${activeTab === "local" ? "active" : ""}`}
