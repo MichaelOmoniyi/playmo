@@ -65,9 +65,6 @@
     margin-block: 5px;
 }
 
-.playerDisplay, .spotify-frame {
-    min-width: 380px !important;
-}
 
 .marquee-container {
     /* width: 100%; */

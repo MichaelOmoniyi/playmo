@@ -52,8 +52,27 @@ input[type="range"] {
   background-color: #27ae60;
 }
 
-@media (max-width: 900px) {
+@media (min-width: 350px) {
   .component {
-    width: 50%;
+    /* width: 50%; */
+  }
+
+  .playerDisplay,
+  .spotify-frame {
+    min-width: 350px !important;
+  }
+}
+
+@media (min-width: 700px) {
+  .playerDisplay,
+  .spotify-frame {
+    min-width: 550px !important;
+  }
+}
+
+@media (min-width: 900px) {
+  .playerDisplay,
+  .spotify-frame {
+    min-width: 750px !important;
   }
 }
