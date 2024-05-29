@@ -65,7 +65,36 @@
     margin-block: 5px;
 }
 
-.spotify-frame{
-    height: 70vh;
-    width: 600px;
+.playerDisplay, .spotify-frame {
+    min-width: 380px !important;
 }
+
+.marquee-container {
+    /* width: 100%; */
+    overflow: hidden;
+    /* background: #f1f1f1;
+    padding: 10px 0; */
+  }
+  
+  .marquee {
+    display: inline-block;
+    white-space: nowrap;
+    animation: marquee 15s linear infinite;
+  }
+  
+  @keyframes marquee {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  .marquee p {
+    display: inline-block;
+    /* padding: 0 50px;
+    font-size: 24px;
+    color: #333; */
+  }
+  

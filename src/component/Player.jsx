@@ -6,17 +6,17 @@ import musicImage from "../assets/music-player.jpg";
 import { AiFillPlayCircle, AiFillPauseCircle } from "react-icons/ai";
 import { BiSkipNext, BiSkipPrevious } from "react-icons/bi";
 import { IconContext } from "react-icons";
-import "./Player.css"
+import "./Player.css";
 
 export default function Player() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [time, setTime] = useState({
     min: "",
-    sec: ""
+    sec: "",
   });
   const [currTime, setCurrTime] = useState({
     min: "",
-    sec: ""
+    sec: "",
   });
 
   const [seconds, setSeconds] = useState();
@@ -30,7 +30,7 @@ export default function Player() {
       const secRemain = Math.floor(sec % 60);
       setTime({
         min: min,
-        sec: secRemain
+        sec: secRemain,
       });
     }
   }, [isPlaying, duration]);
@@ -43,7 +43,7 @@ export default function Player() {
         const sec = Math.floor(sound.seek([]) % 60);
         setCurrTime({
           min,
-          sec
+          sec,
         });
       }
     }, 1000);
@@ -71,7 +71,7 @@ export default function Player() {
         >
           Local Player
         </button>
-        <h2>Playing Now</h2>
+        <h2 style={{ color: "white" }}>Playing Now</h2>
         <button
           className={`tab ${activeTab === "spotify" ? "active" : ""}`}
           onClick={() => setActiveTab("spotify")}
@@ -85,9 +85,14 @@ export default function Player() {
             <img className="musicCover" src={musicImage} alt="Music Cover" />
             <div className="titles">
               <h3 className="title">All I Do Is Win</h3>
-              <p className="subTitle">
-                Rick Ross ft. DJ Khaled, Ludacris, Snoop Dogg & T Pain
-              </p>
+              <div className="marquee-container">
+                <div className="marquee">
+                  <p className="subTitle">
+                    Rick Ross ft. DJ Khaled, Ludacris, Snoop
+                    Dogg & T Pain
+                  </p>
+                </div>
+              </div>
             </div>
             <div className="playerDisplay">
               <div className="time">
@@ -118,13 +123,17 @@ export default function Player() {
               </button>
               {!isPlaying ? (
                 <button className="playButton" onClick={playingButton}>
-                  <IconContext.Provider value={{ size: "3em", color: "#27AE60" }}>
+                  <IconContext.Provider
+                    value={{ size: "3em", color: "#27AE60" }}
+                  >
                     <AiFillPlayCircle />
                   </IconContext.Provider>
                 </button>
               ) : (
                 <button className="playButton" onClick={playingButton}>
-                  <IconContext.Provider value={{ size: "3em", color: "#27AE60" }}>
+                  <IconContext.Provider
+                    value={{ size: "3em", color: "#27AE60" }}
+                  >
                     <AiFillPauseCircle />
                   </IconContext.Provider>
                 </button>
@@ -138,7 +147,8 @@ export default function Player() {
           </div>
         )}
         {activeTab === "spotify" && (
-          <iframe className="spotify-frame"
+          <iframe
+            className="spotify-frame"
             title="Spotify Embed: Recommendation Playlist"
             src={`https://open.spotify.com/embed/playlist/6hfwHFC3PLf1Doz23GSPWf?utm_source=generator&theme=0`}
             width="100%"
@@ -149,7 +159,6 @@ export default function Player() {
           />
         )}
       </div>
-
     </div>
   );
 }
