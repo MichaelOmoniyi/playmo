@@ -65,7 +65,7 @@ export default function Player() {
   return (
     <div className="component">
       <header>
-        <img src="./PlayMO.png" alt="PlayMo Logo" />
+        <img src="/src/assets/PlayMO.png" alt="PlayMo Logo" />
       </header>
       <div className="tabs">
         <button
