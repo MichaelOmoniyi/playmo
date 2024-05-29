@@ -6,6 +6,7 @@ import musicImage from "../assets/music-player.jpg";
 import { AiFillPlayCircle, AiFillPauseCircle } from "react-icons/ai";
 import { BiSkipNext, BiSkipPrevious } from "react-icons/bi";
 import { IconContext } from "react-icons";
+import "./Player.css"
 
 export default function Player() {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -63,7 +64,9 @@ export default function Player() {
 
   return (
     <div className="component">
-      
+      <header>
+        <img src="./PlayMO.png" alt="PlayMo Logo" />
+      </header>
       <div className="tabs">
         <button
           className={`tab ${activeTab === "local" ? "active" : ""}`}
@@ -82,13 +85,13 @@ export default function Player() {
         <div className="local-player">
           <h2>Playing Now</h2>
           <img className="musicCover" src={musicImage} alt="Music Cover" />
-          <div>
+          <div className="titles">
             <h3 className="title">All I Do Is Win</h3>
             <p className="subTitle">
               Rick Ross ft. DJ Khaled, Ludacris, Snoop Dogg & T Pain
             </p>
           </div>
-          <div>
+          <div className="playerDisplay">
             <div className="time">
               <p>
                 {currTime.min}:{currTime.sec}

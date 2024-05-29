@@ -1,0 +1,64 @@
+*, *::after, *::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.component {
+    width: 100% !important;
+    padding: 20px !important;
+    background-color: rgba(0, 0, 0, 0.7) !important;
+}
+
+.tabs {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    margin-block: 10px;
+}
+
+.tabs button {
+    background-color: aquamarine;
+    color: white;
+    border: none;
+    padding: 7px;
+    border-radius: 5px;
+}
+
+.tabs button:hover {
+    opacity: 0.7;
+}
+
+.local-player {
+    color: white;
+}
+
+.local-player h2 {
+    margin-bottom: 10px;
+}
+
+.local-player img {
+    margin-block: 5px;
+}
+
+.titles {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-block: 10px;
+}
+
+.titles .subTitle {
+    color: rgb(192, 187, 187) !important;
+}
+
+.playerDisplay {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+    margin-block: 5px;
+}
