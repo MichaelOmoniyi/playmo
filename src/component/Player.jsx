@@ -6,17 +6,17 @@ import musicImage from "../assets/music-player.jpg";
 import { AiFillPlayCircle, AiFillPauseCircle } from "react-icons/ai";
 import { BiSkipNext, BiSkipPrevious } from "react-icons/bi";
 import { IconContext } from "react-icons";
-import "./Player.css"
+import "./Player.css";
 
 export default function Player() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [time, setTime] = useState({
     min: "",
-    sec: ""
+    sec: "",
   });
   const [currTime, setCurrTime] = useState({
     min: "",
-    sec: ""
+    sec: "",
   });
 
   const [seconds, setSeconds] = useState();
@@ -30,7 +30,7 @@ export default function Player() {
       const secRemain = Math.floor(sec % 60);
       setTime({
         min: min,
-        sec: secRemain
+        sec: secRemain,
       });
     }
   }, [isPlaying, duration]);
@@ -43,7 +43,7 @@ export default function Player() {
         const sec = Math.floor(sound.seek([]) % 60);
         setCurrTime({
           min,
-          sec
+          sec,
         });
       }
     }, 1000);
