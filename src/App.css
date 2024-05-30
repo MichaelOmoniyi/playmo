@@ -1,7 +1,7 @@
 html,
 body {
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
   background: rgb(2, 0, 36);
   background: linear-gradient(
     180deg,
@@ -14,8 +14,8 @@ body {
 }
 
 #root {
-  width: 100%;
-  height: 100%;
+  /* width: 100%;
+  height: 100%; */
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
@@ -46,14 +46,14 @@ body {
 }
 
 .header {
-  position: fixed;
-  top: 30px;
+  /* position: fixed;
+  top: 30px; */
   margin: auto;
 }
 
 .header header img {
-  /* max-width: 70px; */
-  height: 50px;
+  max-width: 200px;
+  /* height: 50px; */
 }
 
 .music-dash {

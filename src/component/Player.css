@@ -11,6 +11,10 @@
 }
 
 
+.tab{
+    cursor: pointer;
+}
+
 
 .tabs {
     width: 100%;
@@ -22,7 +26,7 @@
 
 .tabs button {
     background-color: aquamarine;
-    color: rgb(107, 103, 103);
+    color: rgb(43, 9, 9);    
     border: none;
     padding: 7px;
     border-radius: 5px;
