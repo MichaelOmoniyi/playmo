@@ -32,6 +32,11 @@
     opacity: 0.7;
 }
 
+.toUse {
+    color: rgba(153, 139, 139, 0.7);
+    text-decoration: none;
+}
+
 .local-player {
     color: white;
 }
