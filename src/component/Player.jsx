@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import useSound from "use-sound";
 import winMusic from "../assets/all-i-do-is-win.mp3";
 import musicImage from "../assets/music-player.jpg";
-// import musicImage from "../assets/music-player.jpg";
 import { AiFillPlayCircle, AiFillPauseCircle } from "react-icons/ai";
 import { BiSkipNext, BiSkipPrevious } from "react-icons/bi";
 import { IconContext } from "react-icons";

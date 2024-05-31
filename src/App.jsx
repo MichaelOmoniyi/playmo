@@ -1,4 +1,5 @@
 import Player from "./component/Player";
+import AboutPage from "./component/About/AboutPage";
 import PlayMOLogo from "./assets/PlayMO.png";
 import "./App.css";
 
@@ -14,6 +15,10 @@ export default function App() {
       </div>
       <div className="music-dash">
         <Player />
+      </div>
+
+      <div>
+        <AboutPage />
       </div>
     </div>
   );
