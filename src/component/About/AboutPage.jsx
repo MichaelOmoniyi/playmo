@@ -73,6 +73,13 @@ function AboutPage() {
             <strong>Seek:</strong> Drag the timeline slider to seek to a
             specific part of the track.
           </li>
+          <li>
+            Watch the video demo on <a
+              href="https://www.youtube.com/watch?v=C_m_9X3-WpQ"
+              className="toUse"
+            ><strong>how to use</strong></a>
+          </li>
+
         </ol>
       </section>
 

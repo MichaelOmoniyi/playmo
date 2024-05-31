@@ -63,10 +63,6 @@ export default function Player() {
 
   return (
     <div className="component">
-      <a
-        href="https://www.youtube.com/watch?v=C_m_9X3-WpQ"
-        className="toUse"
-      >How to use?</a>
       <div className="tabs">
         <button
           className={`tab ${activeTab === "local" ? "active" : ""}`}

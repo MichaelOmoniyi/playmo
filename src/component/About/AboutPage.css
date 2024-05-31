@@ -68,3 +68,8 @@ footer {
 footer p {
   margin: 0;
 }
+
+.toUse {
+  color: blue;
+  text-decoration: none;
+}
